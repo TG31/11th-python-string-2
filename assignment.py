@@ -11,7 +11,6 @@ def is_valid_email(text):
         return "Valid"
     else:
         return "Invalid"
-print(is_valid_email("hello@gmail.com"))
 
 # Exercise 2
 def remove_vowels(text):
@@ -20,18 +19,38 @@ def remove_vowels(text):
         text = text.replace(i, "")
     return text
 
-print(remove_vowels("Please call me tomorrow"))
-
 # Exercise 3
 def get_initials(text):
-    
+    words = text.split()
+    initials = ""
+
+    for word in words:
+        initials += word[0].upper() + "."
+
+    return initials
 
 # Exercise 4
 def extract_year(text):
-    # Write your code here
-    pass
+    words = text.split()
+
+    for word in words:
+        number = ""
+
+        for i in word:
+            if i.isdigit():
+                number += i
+
+        if len(number) == 4:
+            return number
+
+    return False
 
 # Exercise 5
 def is_palindrome(text):
-    # Write your code here
-    pass
+    clean_text = ""
+
+    for i in text:
+        if i.isalnum():
+            clean_text += i.lower()
+
+    return clean_text == clean_text[::-1]
